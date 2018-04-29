@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Image Scraper</title>
+
+    <!-- Import Google Icon Font  -->
+    <link href="/css/material-icons.css" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="row">
+        <div id="formParent" class="col s12 m8 l6 offset-l3 offset-m2">
+          <img src="/imgs/nodejs-logo.png" style="display:block; margin:0 auto">
+          <h4 class="center-align">NodeJS Web Chat App</h4>
+
+          <form name="coedForm" method="POST">
+            <label>Folder Path</label> <input name="folder" value="E:/Setups/Cats" placeholder="E:/Setups/Cats" type="text" required>
+            <label>Prefix Name</label> <input name="prefix" placeholder="Black Cat" type="text" required>
+            <label>Gallery Link</label> <input name="url" placeholder="https://www.somegallery.com/cats-gallery" type="text" required>
+
+            <button id="submit-btn" class="btn waves-effect waves-light grey darken-4" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>    
+          </form>
+  
+        </div><!-- formParent -->
+        
+      </div><!-- Row End -->
+
+    </div><!-- Container End -->
+    
+    <!-- jQuery 3.3.1 minified -->
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="/js/materialize.min.js"></script>
+  </body>
+</html>
