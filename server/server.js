@@ -12,22 +12,37 @@ const io = socketIO(server);
 
 app.use(express.static(publicPath));
 
+const timestamp = new Date().getTime();
+
 io.on('connection', (socket) => {
    console.log('New user connected.');
 
-   // socket.emit('newMessage', {
-   //    from: 'Hussey',
-   //    text: 'Hey! What is going on',
-   //    createdAt: 123
-   // });
+   socket.emit('newMessage', {
+      from: 'Admin',
+      text: 'Welcome to the Chat Ap',
+      createdAt: timestamp
+   });
+
+   socket.broadcast.emit('newMessage', {
+      from: 'Admin',
+      text: 'New user joined',
+      createdAt: timestamp
+   });
 
    socket.on('createMessage', (message) => {
       console.log('createMessage', JSON.stringify(message, undefined, 2));
+
       io.emit('newMessage', {
          from: message.from,
          text: message.text,
-         createdAt: new Date().getTime()
-      })
+         createdAt: timestamp
+      });
+
+      // socket.broadcast.emit('newMessage', {
+      //    from:  message.from,
+      //    text: message.text,
+      //    createdAt: timestamp
+      // });
    });
 
    socket.on('disconnect', () => {
