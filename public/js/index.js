@@ -7,18 +7,16 @@ var socket = io();
 socket.on('connect', function() {
    console.log('Connected to server.');
 
-   // socket.emit('createMessage', {
-   //    from: 'Jen',
-   //    text: 'Hey! This is hussey'
-   // });
+   M.toast({html: 'Connected to the server.', classes: 'rounded green', displayLength: 3000});
 });
 
 socket.on('disconnect', function() {
    console.log('Disconnected from the server.');
+   M.toast({html: 'Disconnected from the server.', classes: 'rounded red', displayLength: 10000});
 });
 
 socket.on('newMessage', function (message) {
-   console.log('New message:', JSON.stringify(message, undefined, 2))
+   // console.log('New message:', JSON.stringify(message, undefined, 2))
    var li = jQuery('<li class="message-item"></li>');
    li.html(`<span class="sender-name">${message.from}:</span> <span class="user-message">${message.text}</span>`);
    jQuery('#messages').append(li);
