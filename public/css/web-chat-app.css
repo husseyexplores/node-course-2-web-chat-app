@@ -2,7 +2,11 @@
    font-family: 'Courier New', Courier, monospace;
 }
 
-.sender {
+.sender-name {
    font-weight: 700;
+}
+
+#send-location-btn {
+   margin-top: 10px;
 }
 
