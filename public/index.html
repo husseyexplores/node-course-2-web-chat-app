@@ -14,6 +14,8 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Web Chat App CSS -->
+    <link href="/css/web-chat-app.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
@@ -23,12 +25,14 @@
           <img src="/imgs/nodejs-logo.png" style="display:block; margin:0 auto">
           <h4 class="center-align">NodeJS Web Chat App</h4>
 
-          <form name="coedForm" method="POST">
-            <label>Folder Path</label> <input name="folder" value="E:/Setups/Cats" placeholder="E:/Setups/Cats" type="text" required>
-            <label>Prefix Name</label> <input name="prefix" placeholder="Black Cat" type="text" required>
-            <label>Gallery Link</label> <input name="url" placeholder="https://www.somegallery.com/cats-gallery" type="text" required>
+          <ul id="messages" class="collection">
+             
+          </ul>
 
-            <button id="submit-btn" class="btn waves-effect waves-light grey darken-4" type="submit" name="action">Submit
+          <form id="message-form" name="message-form" method="POST">
+            <label>Message</label> <input name="message" placeholder="Type your message here" type="text" required>
+
+            <button id="submit-btn" class="btn waves-effect waves-light grey darken-4" type="submit" name="action">Send
                 <i class="material-icons right">send</i>
             </button>    
           </form>
