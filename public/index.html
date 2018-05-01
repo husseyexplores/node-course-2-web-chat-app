@@ -1,60 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>NodeJS Chat App</title>
 
-    <!-- Import Materialize CSS Font Icons -->
-    <link href="/css/material-icons.css" rel="stylesheet">
-    <!-- Compiled and minified Materialize CSS -->
-    <link rel="stylesheet" href="/css/materialize.min.css">
-    <!-- Import Google Fonts  -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700||Open+Sans:400,700||Roboto+Mono:400,700||Raleway:400,500||Cousine:400,700" rel="stylesheet"> 
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+   <title>NodeJS Chat App</title>
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- Web Chat App CSS -->
-    <link href="/css/web-chat-app.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
+   <!-- Import Materialize CSS Font Icons -->
+   <link href="/css/material-icons.css" rel="stylesheet">
+   <!-- Compiled and minified Materialize CSS -->
+   <link rel="stylesheet" href="/css/materialize.min.css">
+   <!-- Import Google Fonts  -->
+   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700||Open+Sans:400,700||Roboto+Mono:400,700||Raleway:400,500||Cousine:400,700"
+      rel="stylesheet">
+
+   <!--Let browser know website is optimized for mobile-->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <!-- Web Chat App CSS -->
+   <link href="/css/web-chat-app.css" rel="stylesheet">
+</head>
+
+<body>
+   <div class="containear">
 
       <div class="row">
-        <div id="formParent" class="col s12 m8 l6 offset-l3 offset-m2">
-          <img src="/imgs/nodejs-logo.png" style="display:block; margin:0 auto">
-          <h4 class="center-align">NodeJS Web Chat App</h4>
+            <!-- <img src="/imgs/nodejs-logo.png" style="display:block; margin:0 auto">
+            <h4 class="center-align">NodeJS Web Chat App</h4> -->
 
-          <ul id="messages" class="collection">
-             
-          </ul>
+         <div id="people-container" class="hide-on-med-and-down col l2">
+            <table class="highlight light-blue lighten-3">
+               <thead>
+                  <tr><th style="font-size: 18px;">Online Users:</th></tr>
+               </thead>
+               <tbody>
+                  <tr><td>Test</td></tr>
+                  <tr><td>Test</td></tr>
+                  <tr><td>Test</td></tr>
+                  <tr><td>Test</td></tr>
+                  <tr><td>Test</td></tr>
+               </tbody>
+            </table>
+         </div>
 
-          <form id="message-form" name="message-form" method="POST">
-            <label>Message</label> <input name="message" placeholder="Type your message here" type="text" required>
+         <div id="messages-container" class="col s12 l10 m10 offset-m1">
+            <ul id="messages">
 
-            <button id="submit-btn" class="btn waves-effect waves-light grey darken-4" type="submit" name="action">Send
-                <i class="material-icons right">send</i>
-            </button>    
-          </form>
+            </ul>
 
-          <button id="send-location-btn" class="btn waves-effect waves-light grey darken-4">Send
-            <i class="material-icons right">my_location</i>
-        </button> 
-  
-        </div><!-- formParent -->
-        
-      </div><!-- Row End -->
+            <div class="input-parent">
+               <form id="message-form" name="message-form">
+                  <div class="chat-input">
+                     <label>Message</label>
+                     <input name="message" placeholder="Type your message here" type="text" autocomplete="off" autofocus required>
+                  </div>
 
-    </div><!-- Container End -->
-    
-    <!-- jQuery 3.3.1 minified -->
-    <script src="/js/jquery-3.3.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="/js/materialize.min.js"></script>
-    <!-- SocketIO JS -->
-    <script src="/socket.io/socket.io.js"></script>
+                  <div class="chat-buttons">
+                     <button id="submit-btn" class="btn waves-effect waves-light grey darken-4" type="submit" name="action">Send Message
+                        <i class="material-icons right">send</i>
+                     </button>
+
+                     <button id="send-location-btn" class="btn waves-effect waves-light grey darken-4" type="button">Send Location
+                        <i class="material-icons right">my_location</i>
+                     </button>
+                  </div>
+               </form>
+            </div>
+
+         </div> <!-- messages-container -->
+
+      </div> <!-- Row End -->
+
+   </div> <!-- Container End -->
+
+   <!-- jQuery 3.3.1 minified -->
+   <script src="/js/jquery-3.3.1.min.js"></script>
+   <!-- Compiled and minified JavaScript -->
+   <script src="/js/materialize.min.js"></script>
+   <!-- SocketIO JS -->
+   <script src="/socket.io/socket.io.js"></script>
    <!-- SocketIO JS Custom Events -->
    <script src="/js/index.js"></script>
-    
-  </body>
+
+</body>
+
 </html>

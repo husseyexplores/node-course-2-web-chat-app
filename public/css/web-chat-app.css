@@ -1,12 +1,41 @@
-.collection-item {
+.message-item {
    font-family: 'Courier New', Courier, monospace;
+   padding: 5px 5px;
+   font-size: 18px;
+   word-wrap: break-word;
 }
 
 .sender-name {
    font-weight: 700;
 }
 
-#send-location-btn {
-   margin-top: 10px;
+#message-form {
+   bottom: 5px;
+   position: sticky;
+   background-color: #fff;
 }
 
+input, form, button {
+   font-family: 'Courier New', Courier, monospace;
+}
+
+#people-container {
+   /* background: #d5f2ff;
+   height: 100px; */
+   top: 0;
+   position: sticky;
+}
+
+#people-container {
+   font-family: 'Courier New', Courier, monospace;
+}
+
+.chat-buttons {
+   position: absolute;
+   right: 0;
+   display: inline;
+}
+
+.chat-input {
+  
+}
