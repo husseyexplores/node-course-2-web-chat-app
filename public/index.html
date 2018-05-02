@@ -6,11 +6,15 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
    <title>NodeJS Chat App</title>
 
-   <!-- Import Materialize CSS Font Icons -->
-   <link href="/css/material-icons.css" rel="stylesheet">
+   <!-- Materialize CSS Font Icons -->
+   <link href="/css/materialize-css/material-icons.css" rel="stylesheet">
    <!-- Compiled and minified Materialize CSS -->
-   <link rel="stylesheet" href="/css/materialize.min.css">
-   <!-- Import Google Fonts  -->
+   <link rel="stylesheet" href="/css/materialize-css/materialize.min.css">
+   <!-- Material Design Lite Font Icons -->
+   <!-- <link rel="stylesheet" href="/css/material-io/icon.css"> -->
+   <!-- Compiled and minified Material Comp Web -->
+   <link rel="stylesheet" href="css/material-io/material-components-web.min.css">
+   <!-- Import Google Fonts -->
    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700||Open+Sans:400,700||Roboto+Mono:400,700||Raleway:400,500||Cousine:400,700"
       rel="stylesheet">
 
@@ -21,6 +25,20 @@
 </head>
 
 <body>
+   <div class="navbar-fixed">
+      <nav class="cyan">
+         <div class="nav-wrapper">
+            <a style="padding-left: 18px;" href="#!" class="brand-logo"><i class="material-icons">cloud</i>Real-Time Chat App</a>
+            <ul class="right hide-on-med-and-down">
+               <li><a><i class="material-icons">search</i></a></li>
+               <li><a><i class="material-icons">view_module</i></a></li>
+               <li><a><i class="material-icons">refresh</i></a></li>
+               <li><a><i class="material-icons">more_vert</i></a></li>
+            </ul>
+         </div>
+      </nav>
+   </div>
+
    <div class="containear">
 
       <div class="row">
@@ -51,18 +69,17 @@
                <form id="message-form" name="message-form">
                   <div class="chat-input">
                      <label>Message</label>
-                     <input name="message" placeholder="Type your message here" type="text" autocomplete="off" autofocus required>
+                     <input name="message" placeholder="Type your message here" type="text" autocomplete="off" autofocus required style="width: calc(100% - 50px);">
+                     <button id="submit-btn" class="btn btn-small waves-effect waves-light cyan btn-floating " type="submit" name="action">
+                           <i class="material-icons right">send</i>
+                     </button>   
                   </div>
 
-                  <div class="chat-buttons">
-                     <button id="submit-btn" class="btn waves-effect waves-light grey darken-4" type="submit" name="action">Send Message
-                        <i class="material-icons right">send</i>
-                     </button>
-
-                     <button id="send-location-btn" class="btn waves-effect waves-light grey darken-4" type="button">Send Location
+                  <!-- <div class="chat-buttons">
+                     <button id="send-location-btn" class="btn waves-effect waves-light grey darken-4 btn-floating" type="button">
                         <i class="material-icons right">my_location</i>
                      </button>
-                  </div>
+                  </div> -->
                </form>
             </div>
 
@@ -75,7 +92,9 @@
    <!-- jQuery 3.3.1 minified -->
    <script src="/js/jquery-3.3.1.min.js"></script>
    <!-- Compiled and minified JavaScript -->
-   <script src="/js/materialize.min.js"></script>
+   <script src="/js/materialize-css/materialize.min.js"></script>
+   <!-- Compiled and minified Material Comp Web -->
+   <!-- <script src="js/material-io/material-components-web.min.js"></script> -->
    <!-- SocketIO JS -->
    <script src="/socket.io/socket.io.js"></script>
    <!-- SocketIO JS Custom Events -->

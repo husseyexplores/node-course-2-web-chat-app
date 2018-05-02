@@ -13,6 +13,7 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 app.use(express.static(publicPath));
+app.use(express.static(path.join(__dirname)))
 
 const timestamp = new Date().getTime();
 

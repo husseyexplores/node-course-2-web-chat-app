@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+   <title>NodeJS Chat App</title>
+
+   <!-- Material Design Lite Font Icons -->
+   <link rel="stylesheet" href="css/material-design-lite/icon.css">
+   <!-- Compiled and minified Material Comp Web -->
+   <link rel="stylesheet" href="css/material-design-lite/material.min.css">
+
+   <!-- Import Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto+Mono:400,500,700|Roboto:400,500,700" rel="stylesheet"> 
+
+   <!--Let browser know website is optimized for mobile-->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <!-- Web Chat App CSS -->
+   <link href="css/web-chat-app.css" rel="stylesheet">
+</head>
+
+<body>
+   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+         <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Real-time Chat App</span>
+            <div class="mdl-layout-spacer"></div>
+            <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+               mdl-textfield--floating-label mdl-textfield--align-right">
+               <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                  <i class="material-icons">search</i>
+               </label>
+            </div> -->
+            <button id="send-location-btn" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect" type="button">
+                  <i class="material-icons">gps_fixed</i>
+            </button>
+            <div id="location-spinner" class="mdl-spinner mdl-js-spinner is-active" style="display: none;"></div>
+            <div class="mdl-tooltip" data-mdl-for="send-location-btn">Send Location</div>
+         </div>
+      </header>
+      <div class="mdl-layout__drawer">
+         <span class="mdl-layout-title">Online Users</span>
+         <nav class="mdl-navigation">
+            <a class="mdl-navigation__link">Link</a>
+            <a class="mdl-navigation__link">Link</a>
+            <a class="mdl-navigation__link">Link</a>
+            <a class="mdl-navigation__link">Link</a>
+         </nav>
+      </div>
+
+      <main class="mdl-layout__content">
+         <div class="page-content">
+            <div class="mdl-grid">
+
+               <div id="messages-container" class="mdl-cell mdl-cell--12-col">
+                  <ul id="messages">
+                  </ul>
+               </div>
+
+               <div id="input-parent" class="mdl-cell mdl-cell--12-col" style="position: sticky; bottom: 0;">
+                  <form id="message-form" name="message-form">
+                     <div style="width: 100%;" class="chat-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label class="mdl-textfield__label" for="chat_input">Message</label>
+                        <input style="width: calc(100% - 32px);" class="mdl-textfield__input" id="chat_input" name="message" type="text" autocomplete="off" autofocus>
+                        <span class="mdl-textfield__error">Enter letters only</span>
+                        <button style="right: 0" id="submit-btn" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect mdl-button--colored" type="submit" name="action">
+                              <i class="material-icons">send</i>
+                        </button>
+                        <div class="mdl-tooltip" data-mdl-for="submit-btn">Send Message</div>
+                     </div>
+                  </form>
+               </div>
+               <div id="demo-toast" class="mdl-js-snackbar mdl-snackbar" style="display: none">
+                  <div class="mdl-snackbar__text"></div>
+                  <button class="mdl-snackbar__action" type="button"></button>
+               </div>
+
+               </div> <!--mdl-grid-->
+
+         </div> <!-- page-container End -->
+      </main> <!-- Main End -->
+   </div>
+
+   <!-- jQuery 3.3.1 minified -->
+   <script src="js/jquery-3.3.1.min.js"></script>
+   <!-- Compiled and minified JavaScript -->
+   <script src="js/material-design-lite/material.min.js"></script>
+   <!-- SocketIO JS -->
+   <script src="socket.io/socket.io.js"></script>
+   <!-- SocketIO JS Custom Events -->
+   <script src="js/index.js"></script>
+   <script src="js/moment.js"></script>
+   <script>
+   jQuery(document).ready(function(){
+      jQuery('#demo-toast').css('display', '')
+   });
+   </script>
+</body>
+
+</html>
