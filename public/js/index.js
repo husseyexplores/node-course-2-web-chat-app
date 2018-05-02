@@ -38,26 +38,41 @@ socket.on('disconnect', function() {
 });
 
 socket.on('newMessage', function (message) {
-   var formattedTime = moment(message.createdAt).format('h:mm:ss a')
-   var li = jQuery('<li class="message-item"></li>');
-   li.html(`<span class="sender-name">${message.from}:</span> <span class="message-timestamp">${formattedTime}:</span> <span class="user-message">${message.text}</span>`);
-   jQuery('#messages').append(li);
+   // var formattedTime = moment(message.createdAt).format('h:mm:ss a')
+   // var li = jQuery('<li class="message-item"></li>');
+   // li.html(`<span class="sender-name">${message.from}:</span> <span class="message-timestamp">${formattedTime}:</span> <span class="user-message">${message.text}</span>`);
+   // jQuery('#messages').append(li);
 
-   // Scroll to bottom when a message is received
+   // // Scroll to bottom when a message is received
+   // scrollTobottom ();
+   var formattedTime = moment(message.createdAt).format('HH:mm:ss')
+   var template = jQuery('#message-template').html();
+
+   var html = Mustache.render(template, {from: message.from, text: message.text, createdAt: formattedTime});
+ 
+   jQuery('#messages').append(html);
    scrollTobottom ();
 });
 
 socket.on('newLocationMessage', function (message) {
-   var formattedTime = moment(message.createdAt).format('h:mm:ss a')
-   var li = jQuery('<li class="message-item"></li>');
-   var a = jQuery(`<a target="_blank">Check out my current location here!</a>`);
+   // var formattedTime = moment(message.createdAt).format('h:mm:ss a')
+   // var li = jQuery('<li class="message-item"></li>');
+   // var a = jQuery(`<a target="_blank">Check out my current location here!</a>`);
    
-   li.html(`<span class="sender-name">${message.from}:</span> <span class="message-timestamp">${formattedTime}:</span> `);
-   a.attr('href', message.url)
-   li.append(a);
-   jQuery('#messages').append(li);
+   // li.html(`<span class="sender-name">${message.from}:</span> <span class="message-timestamp">${formattedTime}:</span>`);
+   // a.attr('href', message.url)
+   // li.append(a);
+   // jQuery('#messages').append(li);
 
-   // Scroll to bottom when a message is received
+   // // Scroll to bottom when a message is received
+   // scrollTobottom ();
+
+   var formattedTime = moment(message.createdAt).format('HH:mm:ss')
+   var template = jQuery('#location-template').html();
+
+   var html = Mustache.render(template, {from: message.from, link: message.url, createdAt: formattedTime});
+ 
+   jQuery('#messages').append(html);
    scrollTobottom ();
 })
 

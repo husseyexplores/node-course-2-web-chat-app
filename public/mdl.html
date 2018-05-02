@@ -83,15 +83,42 @@
       </main> <!-- Main End -->
    </div>
 
+   <script id="message-template" type="text/template">
+      <li class="message-item" style="list-style: none;">
+         <div>
+            <span class="sender-name">{{from}}</span>
+            <span class="message-timestamp" style="color: #a1a1a1;font-size: 14px; margin-left: 5px;">{{createdAt}}:</span>
+         </div>
+         <div>
+            <span class="user-message">{{text}}</span>
+         </div>
+      </li>
+   </script>
+
+   <script id="location-template" type="text/template">
+      <li class="message-item" style="list-style: none;">
+         <div>
+            <span class="sender-name">{{from}}</span>
+            <span class="message-timestamp" style="color: #a1a1a1;font-size: 14px; margin-left: 5px;">{{createdAt}}:</span>
+         </div>
+         <div>
+            <span class="user-message"><a href="{{link}}" target="_blank">Check out my current location!</a></span>
+         </div>
+      </li>
+   </script>
+
    <!-- jQuery 3.3.1 minified -->
    <script src="js/jquery-3.3.1.min.js"></script>
    <!-- Compiled and minified JavaScript -->
    <script src="js/material-design-lite/material.min.js"></script>
    <!-- SocketIO JS -->
    <script src="socket.io/socket.io.js"></script>
+
+   <script src="js/moment.js"></script>
+   <script src="js/mustache.min.js"></script>
+   
    <!-- SocketIO JS Custom Events -->
    <script src="js/index.js"></script>
-   <script src="js/moment.js"></script>
    <script>
    jQuery(document).ready(function(){
       jQuery('#demo-toast').css('display', '')
