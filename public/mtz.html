@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+   <title>Chat | NodeJS Chat App</title>
+
+   <!-- Materialize CSS Font Icons -->
+   <link href="/css/materialize-css/material-icons.css" rel="stylesheet">
+   <!-- Compiled and minified Materialize CSS -->
+   <link rel="stylesheet" href="/css/materialize-css/materialize.min.css">
+   <!-- Material Design Lite Font Icons -->
+   <!-- <link rel="stylesheet" href="/css/material-io/icon.css"> -->
+   <!-- Compiled and minified Material Comp Web -->
+   <link rel="stylesheet" href="css/material-io/material-components-web.min.css">
+   <!-- Import Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700||Open+Sans:400,700||Roboto+Mono:400,700||Raleway:400,500||Cousine:400,700"
+      rel="stylesheet">
+
+   <!--Let browser know website is optimized for mobile-->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <!-- Web Chat App CSS -->
+   <link href="/css/web-chat-app.css" rel="stylesheet">
+</head>
+
+<body>
+   <div class="navbar-fixed">
+      <nav class="cyan">
+         <div class="nav-wrapper">
+            <a style="padding-left: 18px;" href="#!" class="brand-logo"><i class="material-icons">cloud</i>Real-Time Chat App</a>
+            <ul class="right hide-on-med-and-down">
+               <li><a><i class="material-icons">search</i></a></li>
+               <li><a><i class="material-icons">view_module</i></a></li>
+               <li><a><i class="material-icons">refresh</i></a></li>
+               <li><a><i class="material-icons">more_vert</i></a></li>
+            </ul>
+         </div>
+      </nav>
+   </div>
+
+   <div class="containear">
+
+      <div class="row">
+            <!-- <img src="/imgs/nodejs-logo.png" style="display:block; margin:0 auto">
+            <h4 class="center-align">NodeJS Web Chat App</h4> -->
+
+         <div id="people-container" class="hide-on-med-and-down col l2">
+            <table class="highlight light-blue lighten-3">
+               <thead>
+                  <tr><th style="font-size: 18px;">Online Users:</th></tr>
+               </thead>
+               <tbody>
+                  <tr><td>Test</td></tr>
+                  <tr><td>Test</td></tr>
+                  <tr><td>Test</td></tr>
+                  <tr><td>Test</td></tr>
+                  <tr><td>Test</td></tr>
+               </tbody>
+            </table>
+         </div>
+
+         <div id="messages-container" class="col s12 l10 m10 offset-m1">
+            <ul id="messages">
+
+            </ul>
+
+            <div class="input-parent">
+               <form id="message-form" name="message-form">
+                  <div class="chat-input">
+                     <label>Message</label>
+                     <input name="message" placeholder="Type your message here" type="text" autocomplete="off" autofocus required style="width: calc(100% - 50px);">
+                     <button id="submit-btn" class="btn btn-small waves-effect waves-light cyan btn-floating " type="submit" name="action">
+                           <i class="material-icons right">send</i>
+                     </button>   
+                  </div>
+
+                  <!-- <div class="chat-buttons">
+                     <button id="send-location-btn" class="btn waves-effect waves-light grey darken-4 btn-floating" type="button">
+                        <i class="material-icons right">my_location</i>
+                     </button>
+                  </div> -->
+               </form>
+            </div>
+
+         </div> <!-- messages-container -->
+
+      </div> <!-- Row End -->
+
+   </div> <!-- Container End -->
+
+   <!-- jQuery 3.3.1 minified -->
+   <script src="/js/jquery-3.3.1.min.js"></script>
+   <!-- Compiled and minified JavaScript -->
+   <script src="/js/materialize-css/materialize.min.js"></script>
+   <!-- Compiled and minified Material Comp Web -->
+   <!-- <script src="js/material-io/material-components-web.min.js"></script> -->
+   <!-- SocketIO JS -->
+   <script src="/socket.io/socket.io.js"></script>
+   <!-- SocketIO JS Custom Events -->
+   <script src="/js/chat.js"></script>
+
+</body>
+
+</html>

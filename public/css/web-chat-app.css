@@ -42,3 +42,7 @@ input, form, button {
    right: 0;
    display: inline;
 }
+
+.__center {
+   text-align: center;
+}
