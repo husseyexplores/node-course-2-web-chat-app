@@ -5,10 +5,19 @@ this.actionHandler_&&(this.actionElement_.textContent=this.actionText_,this.acti
 
 
 function scrollTobottom () {
-  // $("html, body").animate({ scrollTop: $(document).height() }, 500);
-   $("html, body").scrollTop($(document).height());
-   //$("html,body,main").animate({ scrollTop: $(document).height() }, 100);
-   $("html,body,main").scrollTop($(document).height());
+   var messages =  jQuery('#messages')
+   var newMessage = messages.children('li:last-child');
+   // Heights
+   var clientHieght = $(window.top).height();
+   var scrollTop = jQuery('main').scrollTop();
+   var scrollHeight = messages.innerHeight();
+   var newMessageHeight = newMessage.innerHeight();
+   var lastMessageHeight = newMessage.prev().innerHeight();
+
+   if (clientHieght + scrollTop + newMessageHeight + lastMessageHeight >=  scrollHeight) {
+      console.log('Should scroll.')
+         $('main').scrollTop(scrollHeight);
+   }
 }
 var socket = io();
 
@@ -51,7 +60,7 @@ socket.on('newMessage', function (message) {
    var html = Mustache.render(template, {from: message.from, text: message.text, createdAt: formattedTime});
  
    jQuery('#messages').append(html);
-   scrollTobottom ();
+   scrollTobottom();
 });
 
 socket.on('newLocationMessage', function (message) {
