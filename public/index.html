@@ -44,7 +44,8 @@
                                  <label class="mdl-textfield__label" for="room">Room To Join</label>
                               </div>
                               <button id="join-room" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-                                    <i class="material-icons" style="margin-left: -8px">send</i><span style="padding: 0 10px;padding-left: 15px;">Join</span>
+                                    <i class="material-icons" style="margin-left: -8px;font-size: 18px;">send</i>
+                                    <span style="padding: 0 10px;padding-left: 15px;">Join</span>
                               </button>
                            </form>
                         </div>
@@ -61,30 +62,6 @@
       </main> <!-- Main End -->
    </div>
 
-   <script id="message-template" type="text/template">
-      <li class="message-item" style="list-style: none;">
-         <div>
-            <span class="sender-name">{{from}}</span>
-            <span class="message-timestamp" style="color: #a1a1a1;font-size: 14px; margin-left: 5px;">{{createdAt}}:</span>
-         </div>
-         <div>
-            <span class="user-message">{{text}}</span>
-         </div>
-      </li>
-   </script>
-
-   <script id="location-template" type="text/template">
-      <li class="message-item" style="list-style: none;">
-         <div>
-            <span class="sender-name">{{from}}</span>
-            <span class="message-timestamp" style="color: #a1a1a1;font-size: 14px; margin-left: 5px;">{{createdAt}}:</span>
-         </div>
-         <div>
-            <span class="user-message"><a href="{{link}}" target="_blank">Check out my current location!</a></span>
-         </div>
-      </li>
-   </script>
-
    <!-- jQuery 3.3.1 minified -->
    <script src="js/jquery-3.3.1.min.js"></script>
    <!-- Compiled and minified JavaScript -->
@@ -92,11 +69,8 @@
    <!-- SocketIO JS -->
    <script src="socket.io/socket.io.js"></script>
 
-   <script src="js/moment.js"></script>
-   <script src="js/mustache.min.js"></script>
-   
    <!-- SocketIO JS Custom Events -->
-   <script src="js/chat.js"></script>
+   <script src="js/index.js"></script>
    <script>
    jQuery(document).ready(function(){
       jQuery('#demo-toast').css('display', '')
