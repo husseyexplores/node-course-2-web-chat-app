@@ -42,11 +42,8 @@
       </header>
       <div class="mdl-layout__drawer">
          <span class="mdl-layout-title">Online Users</span>
-         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link">Link</a>
-            <a class="mdl-navigation__link">Link</a>
-            <a class="mdl-navigation__link">Link</a>
-            <a class="mdl-navigation__link">Link</a>
+         <nav id="people-list" class="mdl-navigation">
+
          </nav>
       </div>
 
@@ -63,7 +60,7 @@
                   <form id="message-form" name="message-form">
                      <div style="width: 100%;" class="chat-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <label class="mdl-textfield__label" for="chat_input">Message</label>
-                        <input style="width: calc(100% - 32px);" class="mdl-textfield__input" id="chat_input" name="message" type="text" autocomplete="off" autofocus>
+                        <input style="width: calc(100% - 32px);" class="mdl-textfield__input" id="chat_input" name="message" type="text" autocomplete="off" autofocus/>
                         <span class="mdl-textfield__error">Enter letters only</span>
                         <button style="right: 0" id="submit-btn" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect mdl-button--colored" type="submit" name="action">
                               <i class="material-icons">send</i>
@@ -87,7 +84,7 @@
       <li class="message-item" style="list-style: none;">
          <div>
             <span class="sender-name">{{from}}</span>
-            <span class="message-timestamp" style="color: #a1a1a1;font-size: 14px; margin-left: 5px;">{{createdAt}}:</span>
+            <span class="message-timestamp" style="color: #a1a1a1;font-size: 14px; margin-left: 5px;">{{createdAt}}</span>
          </div>
          <div>
             <span class="user-message">{{text}}</span>
@@ -99,7 +96,7 @@
       <li class="message-item" style="list-style: none;">
          <div>
             <span class="sender-name">{{from}}</span>
-            <span class="message-timestamp" style="color: #a1a1a1;font-size: 14px; margin-left: 5px;">{{createdAt}}:</span>
+            <span class="message-timestamp" style="color: #a1a1a1;font-size: 14px; margin-left: 5px;">{{createdAt}}</span>
          </div>
          <div>
             <span class="user-message"><a href="{{link}}" target="_blank">Check out my current location!</a></span>

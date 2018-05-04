@@ -28,7 +28,7 @@ socket.on('connect', function() {
          alert(err);
          window.location.href = '/'
       } else {
-         console.log('No Error')
+         console.log('No Error');
       }
    });
 
@@ -54,6 +54,15 @@ socket.on('disconnect', function() {
    document.querySelector('#demo-toast').MaterialSnackbar.showSnackbar(snackMessage);
 });
 
+socket.on('updateUserList', function (users) {
+   var list = jQuery('#people-list');
+   list.empty();
+   users.forEach(function (user) {
+      list.append(jQuery('<a class="mdl-navigation__link"></a>').text(decodeURIComponent(user.replace(/\+/g, ' '))));
+   });
+
+})
+
 socket.on('newMessage', function (message) {
    // var formattedTime = moment(message.createdAt).format('h:mm:ss a')
    // var li = jQuery('<li class="message-item"></li>');
@@ -62,7 +71,7 @@ socket.on('newMessage', function (message) {
 
    // // Scroll to bottom when a message is received
    // scrollTobottom ();
-   var formattedTime = moment(message.createdAt).format('HH:mm:ss')
+   var formattedTime = moment(message.createdAt).format('HH:mm')
    var template = jQuery('#message-template').html();
 
    var html = Mustache.render(template, {from: message.from, text: message.text, createdAt: formattedTime});
@@ -84,7 +93,7 @@ socket.on('newLocationMessage', function (message) {
    // // Scroll to bottom when a message is received
    // scrollTobottom ();
 
-   var formattedTime = moment(message.createdAt).format('HH:mm:ss')
+   var formattedTime = moment(message.createdAt).format('HH:mm')
    var template = jQuery('#location-template').html();
 
    var html = Mustache.render(template, {from: message.from, link: message.url, createdAt: formattedTime});
@@ -101,7 +110,6 @@ jQuery('#message-form').on('submit', function (e) {
 
    if (jQuery.trim(msgTextBox.val()).length !== 0){
       socket.emit('createMessage', {
-         from: 'User',
          text: msgTextBox.val()
       }, function () {
             msgTextBox.val('')

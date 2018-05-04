@@ -13,9 +13,7 @@ class Users {
       var user = this.getUser(id)
 
       if (user) {
-       //  this.allUsers == this.allUsers.filter((user) => user.id !== id) // Andrew's Code not working :(
-       var removeIndex = this.allUsers.map((user) => { return user.id; }).indexOf(id);
-       this.allUsers.splice(removeIndex, 1);
+         this.allUsers = this.allUsers.filter(user => user.id !== id)
       }
       return user;
    }
