@@ -24,20 +24,30 @@ const timestamp = new Date().getTime();
 io.on('connection', (socket) => {
 
    socket.on('join', (params, callback) => {
+      params.name = decodeURIComponent(params.name.replace(/\+/g, ' '));
+      params.room = decodeURIComponent(params.room.replace(/\+/g, ' '));
+
+      var roomOriginal = params.room;
+      params.room = params.room.toLowerCase();
+      
       if (!isRealString(params.name) && !isRealString(params.room)) {
          return callback('Display name and room nameare required.');
       }
 
-      params.name = decodeURIComponent(params.name.replace(/\+/g, ' '));
-      params.room = decodeURIComponent(params.room.replace(/\+/g, ' '));
-      
+      var userList = users.getUserList(params.room);
+      var userExists = userList.find((user) => user === params.name);
+     
+      if (userExists) {
+         return callback('User already exists. Please change your username.')
+      }
+
       socket.join(params.room);
       users.removeUser(socket.id);
       users.addUser(socket.id, params.name, params.room);
-      
+      console.log(users.allUsers)
       io.to(params.room).emit('updateUserList', users.getUserList(params.room));
 
-      socket.emit('newMessage', generateMessage('Admin', `Welcome to the ${params.room}`));
+      socket.emit('newMessage', generateMessage('Admin', `Welcome to the ${roomOriginal}`));
       socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} has joined.`));
 
       callback();
